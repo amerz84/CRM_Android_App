@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MemberEditorActivity">
+
+    <TextView
+        android:id="@+id/member_editor_fname_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="First Name:"
+        android:textSize="@dimen/list_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/member_editor_lname_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Last Name:"
+        android:textSize="@dimen/list_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/member_editor_fname_textview" />
+
+    <TextView
+        android:id="@+id/member_editor_address_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Street Address:"
+        android:textSize="@dimen/list_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/member_editor_lname_textview" />
+
+    <TextView
+        android:id="@+id/member_editor_email_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Email:"
+        android:textSize="@dimen/list_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/member_editor_address_textview" />
+
+    <TextView
+        android:id="@+id/member_editor_phone_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Phone:"
+        android:textSize="@dimen/list_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/member_editor_email_textview" />
+
+    <TextView
+        android:id="@+id/member_editor_status_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Status:"
+        android:textSize="@dimen/list_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/member_editor_phone_textview" />
+
+    <EditText
+        android:id="@+id/member_editor_fname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:hint="Enter First Name"
+        android:nextFocusForward="@+id/member_editor_lname"
+        android:textSize="@dimen/list_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/member_editor_fname_textview"
+        app:layout_constraintStart_toStartOf="@+id/member_editor_fname_textview"
+        app:layout_constraintTop_toTopOf="@+id/member_editor_fname_textview" />
+
+    <EditText
+        android:id="@+id/member_editor_lname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:hint="Enter Last Name"
+        android:nextFocusForward="@+id/member_editor_address"
+        android:textSize="@dimen/list_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/member_editor_lname_textview"
+        app:layout_constraintStart_toStartOf="@+id/member_editor_lname_textview"
+        app:layout_constraintTop_toTopOf="@+id/member_editor_lname_textview" />
+
+    <EditText
+        android:id="@+id/member_editor_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:hint="Enter Address"
+        android:nextFocusForward="@+id/member_editor_email"
+        android:textSize="@dimen/list_text_size"
+        android:inputType="textPostalAddress"
+        app:layout_constraintBottom_toBottomOf="@+id/member_editor_address_textview"
+        app:layout_constraintStart_toStartOf="@+id/member_editor_address_textview"
+        app:layout_constraintTop_toTopOf="@+id/member_editor_address_textview" />
+
+    <EditText
+        android:id="@+id/member_editor_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:hint="Enter Email Address"
+        android:nextFocusForward="@+id/member_editor_phone"
+        android:textSize="@dimen/list_text_size"
+        android:inputType="textWebEmailAddress"
+        app:layout_constraintBottom_toBottomOf="@+id/member_editor_email_textview"
+        app:layout_constraintStart_toStartOf="@+id/member_editor_email_textview"
+        app:layout_constraintTop_toTopOf="@+id/member_editor_email_textview" />
+
+    <EditText
+        android:id="@+id/member_editor_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:hint="Enter Phone #"
+        android:nextFocusForward="@+id/member_editor_status_spinner"
+        android:textSize="@dimen/list_text_size"
+        android:inputType="phone"
+        app:layout_constraintBottom_toBottomOf="@+id/member_editor_phone_textview"
+        app:layout_constraintStart_toStartOf="@+id/member_editor_phone_textview"
+        app:layout_constraintTop_toTopOf="@+id/member_editor_phone_textview" />
+
+    <Spinner
+        android:id="@+id/member_editor_status_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginStart="160dp"
+        android:entries="@array/membership_status"
+        android:spinnerMode="dialog"
+        app:layout_constraintBottom_toBottomOf="@+id/member_editor_status_textview"
+        app:layout_constraintStart_toStartOf="@+id/member_editor_status_textview"
+        app:layout_constraintTop_toTopOf="@+id/member_editor_status_textview" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

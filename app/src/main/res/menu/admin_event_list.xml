@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_search_event"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="collapseActionView|ifRoom"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        android:title="Search" />
+
+    <item
+        android:id="@+id/action_filter_event"
+        android:title="Filter Event"
+        android:icon="@drawable/ic_filter_list"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/submenu_event_weekly"
+                android:title="Weekly"/>
+            <item
+                android:id="@+id/submenu_event_monthly"
+                android:title="Monthly"/>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/action_add_event"
+        android:title="Add Event"
+        android:icon="@drawable/ic_add"
+        app:showAsAction="always" />
+</menu>

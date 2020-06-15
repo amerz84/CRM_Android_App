@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.PaymentEditorActivity">
+
+    <TextView
+        android:id="@+id/payment_editor_date_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Date:"
+        android:textSize="@dimen/list_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/payment_editor_amount_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Amount:"
+        android:textSize="@dimen/list_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/payment_editor_date_textview" />
+
+    <EditText
+        android:id="@+id/payment_editor_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:hint="Enter Amount"
+        android:selectAllOnFocus="true"
+        android:inputType="numberDecimal"
+        android:textSize="@dimen/list_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/payment_editor_amount_textview"
+        app:layout_constraintStart_toStartOf="@+id/payment_editor_amount_textview"
+        app:layout_constraintTop_toTopOf="@+id/payment_editor_amount_textview" />
+
+    <TextView
+        android:id="@+id/payment_editor_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="165dp"
+        android:hint="Enter Date"
+        android:textSize="@dimen/list_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/payment_editor_date_textview"
+        app:layout_constraintStart_toStartOf="@+id/payment_editor_date_textview"
+        app:layout_constraintTop_toTopOf="@+id/payment_editor_date_textview" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/payment_editor_amount_textview">
+
+        <TextView
+            android:id="@+id/payment_editor_type_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center_vertical"
+            android:textSize="@dimen/list_text_size"
+            android:text="Type:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/payment_editor_amount_textview" />
+
+        <Spinner
+            android:id="@+id/payment_editor_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="top"
+            android:layout_marginLeft="116dp"
+            android:layout_marginTop="16dp"
+            android:entries="@array/offering_type"
+            android:layout_marginBottom="16dp"
+            android:spinnerMode="dialog" />
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

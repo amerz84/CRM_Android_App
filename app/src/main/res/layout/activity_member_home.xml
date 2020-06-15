@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MemberHomeActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/member_my_groups_button"
+                android:layout_width="@dimen/member_button_width"
+                android:layout_height="@dimen/member_button_height"
+                android:layout_marginTop="64dp"
+                android:background="@drawable/shape_radius"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="loadMyGroups"
+                android:text="@string/my_groups"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/member_events_button"
+                android:layout_width="@dimen/member_button_width"
+                android:layout_height="@dimen/member_button_height"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_radius"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="loadEvents"
+                android:text="Events"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/member_my_groups_button" />
+
+            <Button
+                android:id="@+id/member_all_members_button"
+                android:layout_width="@dimen/member_button_width"
+                android:layout_height="@dimen/member_button_height"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_radius"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="loadMembers"
+                android:text="Member List"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/member_events_button" />
+
+            <Button
+                android:id="@+id/member_my_contributions_button"
+                android:layout_width="@dimen/member_button_width"
+                android:layout_height="@dimen/member_button_height"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_radius"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="loadMyPayments"
+                android:text="My Contributions"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/member_all_members_button" />
+
+            <Button
+                android:id="@+id/member_all_groups_button"
+                android:layout_width="@dimen/member_button_width"
+                android:layout_height="@dimen/member_button_height"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_radius"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="loadAllGroups"
+                android:text="Group List"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:layout_gravity="center"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/member_my_contributions_button" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

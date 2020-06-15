@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.churchappcapstone">
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".activities.LoginActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="sensor"
+            tools:targetApi="jelly_bean"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.GroupDetailActivity"
+            android:label="Group Detail"
+            android:parentActivityName=".activities.GroupListActivity"
+            android:screenOrientation="sensor"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".activities.GroupEditorActivity"
+            android:label="Group Editor"
+            android:parentActivityName=".activities.GroupDetailActivity"
+            android:screenOrientation="sensor"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".activities.PaymentActivity"
+            android:label="Payments"
+            android:parentActivityName=".activities.MemberHomeActivity"
+            android:screenOrientation="sensor"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".activities.PaymentsAllActivity"
+            android:label="All Payments"
+            android:parentActivityName=".activities.PaymentActivity"
+            android:screenOrientation="sensor"
+            tools:targetApi="jelly_bean"/>
+        <activity
+            android:name=".activities.PaymentDetailActivity"
+            android:label="Payment Detail"
+            android:parentActivityName=".activities.PaymentActivity"
+            android:screenOrientation="sensor"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".activities.PaymentEditorActivity"
+            android:label="Payment Editor"
+            android:parentActivityName=".activities.PaymentDetailActivity"
+            android:screenOrientation="sensor"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".activities.EventEditorActivity"
+            android:label="Edit Event"
+            android:parentActivityName=".activities.EventDetailActivity"
+            android:screenOrientation="sensor"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".activities.EventDetailActivity"
+            android:label="Event Detail"
+            android:parentActivityName=".activities.EventListActivity"
+            android:screenOrientation="sensor"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".activities.EventListActivity"
+            android:label="Event List"
+            android:parentActivityName=".activities.MemberHomeActivity"
+            android:screenOrientation="sensor"
+            tools:targetApi="jelly_bean">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name=".activities.GroupListActivity"
+            android:label="Groups"
+            android:parentActivityName=".activities.MemberHomeActivity"
+            android:screenOrientation="sensor"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".activities.GroupMemberDetailActivity"
+            android:label="Group Member Detail"
+            android:parentActivityName=".activities.GroupDetailActivity"
+            android:screenOrientation="sensor"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".activities.GroupMemberEditorActivity"
+            android:label="Group Member Editor"
+            android:parentActivityName=".activities.GroupMemberDetailActivity"
+            android:screenOrientation="sensor"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".activities.MemberHomeActivity"
+            android:label="Member Home"
+            android:screenOrientation="sensor"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".activities.MemberListActivity"
+            android:label="Members"
+            android:parentActivityName=".activities.MemberHomeActivity"
+            android:screenOrientation="sensor"
+            tools:targetApi="jelly_bean">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name=".activities.MemberDetailActivity"
+            android:label="Member Detail"
+            android:parentActivityName=".activities.MemberListActivity"
+            android:screenOrientation="sensor"
+            tools:targetApi="jelly_bean">
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO" />
+                <data android:scheme="mailto" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.MemberEditorActivity"
+            android:label="Edit Member"
+            android:parentActivityName=".activities.MemberHomeActivity"
+            android:screenOrientation="sensor"
+            tools:targetApi="jelly_bean" />
+    </application>
+
+</manifest>

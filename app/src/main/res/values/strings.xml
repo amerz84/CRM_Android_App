@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">ChurchAppCapstone</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <string name="title_activity_main">MainActivity</string>
+    <string name="add_sample_data">add_sample_data</string>
+    <string name="delete_all">delete_all</string>
+    <string name="my_groups">My Groups</string>
+    <string name="note_goes_here">Note goes here. Here is a long note. This note is so long. I can\'t believe it\'s such a long note. It\'s not a very short note whatsoever. Can this note get any longer?? space.....................................................................</string>
+
+    <string-array name="offering_type">
+        <item>Annual Dues</item>
+        <item>Offering</item>
+        <item>Maintenance Fund</item>
+        <item>Miscellaneous</item>
+    </string-array>
+
+    <string-array name="membership_status">
+        <item>Current</item>
+        <item>Unpaid</item>
+        <item>Expired</item>
+    </string-array>
+
+    <string name="enter_search_characters">Enter search character(s)</string>
+    <string name="member_status_current">*Current</string>
+    <string name="member_status_unpaid">*Unpaid</string>
+    <string name="member_status_expired">*Expired</string>
+    <string name="member_status_all">*All</string>
+    <string name="event_filter_weekly">*Weekly</string>
+    <string name="event_filter_monthly">*Monthly</string>
+    <string name="event_filter_all">*All</string>
+
+</resources>

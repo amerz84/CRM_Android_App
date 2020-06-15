@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_search_member"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="collapseActionView|ifRoom"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        android:title="Search" />
+
+    <item
+        android:id="@+id/action_report_members"
+        android:icon="@drawable/ic_filter_list"
+        app:showAsAction="always"
+        android:title="Filter Members">
+
+        <menu>
+            <item
+                android:id="@+id/submenu_member_paid"
+                android:title="Current"/>
+            <item
+                android:id="@+id/submenu_member_unpaid"
+                android:title="Unpaid"/>
+            <item
+                android:id="@+id/submenu_member_expired"
+                android:title="Expired"/>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/action_add_member"
+        android:title="Add Member"
+        android:icon="@drawable/ic_person_add"
+        app:showAsAction="always" />
+</menu>
