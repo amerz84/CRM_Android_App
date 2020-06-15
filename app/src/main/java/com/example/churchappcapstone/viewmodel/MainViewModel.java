@@ -1,13 +1,8 @@
 package com.example.churchappcapstone.viewmodel;
 
 import android.app.Application;
-import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import android.view.Gravity;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,8 +11,6 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.churchappcapstone.R;
-import com.example.churchappcapstone.activities.GroupMemberEditorActivity;
 import com.example.churchappcapstone.database.AppRepository;
 import com.example.churchappcapstone.database.EventEntity;
 import com.example.churchappcapstone.database.GroupEntity;
@@ -26,12 +19,8 @@ import com.example.churchappcapstone.database.LoginEntity;
 import com.example.churchappcapstone.database.LoginRepository;
 import com.example.churchappcapstone.database.MemberEntity;
 import com.example.churchappcapstone.database.PaymentEntity;
-import com.example.churchappcapstone.database.TransactionEntity;
 import com.example.churchappcapstone.utilities.Constants;
 
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Member;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;

@@ -6,7 +6,6 @@ import com.example.churchappcapstone.database.GroupMemberEntity;
 import com.example.churchappcapstone.database.LoginEntity;
 import com.example.churchappcapstone.database.MemberEntity;
 import com.example.churchappcapstone.database.PaymentEntity;
-import com.example.churchappcapstone.database.TransactionEntity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
