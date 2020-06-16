@@ -65,7 +65,7 @@ public class MemberListActivity extends AppCompatActivity {
             public void onChanged(List<MemberEntity> memberEntities) {
                 members.clear();
                 members.addAll(memberEntities);
-                binding.memberListTimestamp.setText(Conversions.dateTimeToString(new Date()));
+                setTimestampTextView(); // Display timestamp
 
                 if(memberAdapter == null) {
                     memberAdapter = new MemberAdapter(members, MemberListActivity.this, isAdmin);
@@ -78,6 +78,10 @@ public class MemberListActivity extends AppCompatActivity {
         };
 
         mainViewModel.getMembers().observe(this, memberObserver);
+    }
+
+    private void setTimestampTextView() {
+        binding.memberListTimestamp.setText(Conversions.dateTimeToString(new Date()));
     }
 
     private void initRecyclerView() {
@@ -141,15 +145,19 @@ public class MemberListActivity extends AppCompatActivity {
                 break;
             case R.id.submenu_member_paid:
                 memberAdapter.getFilter().filter(getString(R.string.member_status_current));
+                setTimestampTextView();
                 break;
             case R.id.submenu_member_unpaid:
                 memberAdapter.getFilter().filter(getString(R.string.member_status_unpaid));
+                setTimestampTextView();
                 break;
             case R.id.submenu_member_expired:
                 memberAdapter.getFilter().filter(getString(R.string.member_status_expired));
+                setTimestampTextView();
                 break;
             case R.id.action_report_members:
                 memberAdapter.getFilter().filter(getString(R.string.member_status_all));
+                setTimestampTextView();
                 break;
 
         }

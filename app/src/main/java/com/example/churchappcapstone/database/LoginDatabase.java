@@ -8,6 +8,8 @@ import androidx.room.RoomDatabase;
 
 import com.example.churchappcapstone.database.dao.LoginDao;
 
+import java.io.File;
+
 import static com.example.churchappcapstone.utilities.Constants.LOGIN_DB_NAME;
 
 @Database(entities = LoginEntity.class, version = 2, exportSchema = false)
@@ -23,6 +25,7 @@ public abstract class LoginDatabase extends RoomDatabase {
             synchronized (LOCK) {
                 if (instance == null) {
                     instance = Room.databaseBuilder(context.getApplicationContext(), LoginDatabase.class, LOGIN_DB_NAME)
+                            .createFromAsset("LoginDatabase.db")
                             .fallbackToDestructiveMigration()
                             .build();
                 }

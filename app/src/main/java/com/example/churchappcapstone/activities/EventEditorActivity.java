@@ -4,11 +4,13 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +25,7 @@ import com.example.churchappcapstone.viewmodel.MainViewModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import static com.example.churchappcapstone.utilities.Constants.EDITING_KEY;
@@ -191,14 +194,26 @@ public class EventEditorActivity extends AppCompatActivity {
     }
 
     private void saveAndReturn() {
-        mainViewModel.saveEvent(binding.eventEditorTitleEdittext.getText().toString(), binding.eventEditorNote.getText().toString(),
-                Conversions.stringToDateTime(binding.eventEditorDatePicker.getText().toString(), binding.eventEditorStartPicker.getText().toString()),
-                Conversions.stringToDateTime(binding.eventEditorDatePicker.getText().toString(), binding.eventEditorEndPicker.getText().toString()),
-                newEvent);
-        finish();
-        Intent i = new Intent(this, EventListActivity.class);
-        i.putExtra(IS_ADMIN, isAdmin);
-        startActivity(i);
+        Date start = Conversions.stringToDateTime(binding.eventEditorDatePicker.getText().toString(), binding.eventEditorStartPicker.getText().toString());
+        Date end = Conversions.stringToDateTime(binding.eventEditorDatePicker.getText().toString(), binding.eventEditorEndPicker.getText().toString());
+        if (TextUtils.isEmpty(binding.eventEditorTitleEdittext.getText().toString().trim()) ||
+                TextUtils.isEmpty(start.toString().trim()) || TextUtils.isEmpty(end.toString().trim())) {
+            Toast.makeText(getApplication().getApplicationContext(), "Please enter title, date, and start/end times", Toast.LENGTH_LONG).show();
+        }
+        else if (start.after(end)) {
+            Toast.makeText(getApplication().getApplicationContext(), "Start time must be before end time", Toast.LENGTH_LONG).show();
+        }
+        else {
+            mainViewModel.saveEvent(binding.eventEditorTitleEdittext.getText().toString(),
+                    binding.eventEditorNote.getText().toString(),
+                    start,
+                    end,
+                    newEvent);
+            finish();
+            Intent i = new Intent(this, EventListActivity.class);
+            i.putExtra(IS_ADMIN, isAdmin);
+            startActivity(i);
+        }
     }
 
     //Display selected date in the TextView

@@ -3,9 +3,11 @@ package com.example.churchappcapstone.activities;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -101,18 +103,23 @@ public class GroupEditorActivity extends AppCompatActivity {
     }
 
     private void saveAndReturn() {
-        try {
-            mainViewModel.saveGroup(
-                    binding.groupEditorName.getText().toString(),
-                    mainViewModel.getMemberByName(binding.groupEditorSpinner.getSelectedItem().toString()).getMemberId(),
-                    newGroup);
-        } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
+        if(TextUtils.isEmpty(binding.groupEditorName.getText().toString().trim())) {
+            Toast.makeText(getApplication().getApplicationContext(), "Please enter group name", Toast.LENGTH_LONG).show();
         }
-        finish();
-        Intent intent = new Intent(this, GroupListActivity.class);
-        intent.putExtra(IS_ADMIN, isAdmin);
-        startActivity(intent);
+        else {
+            try {
+                mainViewModel.saveGroup(
+                        binding.groupEditorName.getText().toString(),
+                        mainViewModel.getMemberByName(binding.groupEditorSpinner.getSelectedItem().toString()).getMemberId(),
+                        newGroup);
+            } catch (ExecutionException | InterruptedException e) {
+                e.printStackTrace();
+            }
+            finish();
+            Intent intent = new Intent(this, GroupListActivity.class);
+            intent.putExtra(IS_ADMIN, isAdmin);
+            startActivity(intent);
+        }
     }
 
     //Prevents loss of input text during portrait/landscape transition

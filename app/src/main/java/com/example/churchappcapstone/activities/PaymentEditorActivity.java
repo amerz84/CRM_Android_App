@@ -3,10 +3,12 @@ package com.example.churchappcapstone.activities;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -144,16 +146,24 @@ public class PaymentEditorActivity extends AppCompatActivity {
     }
 
     private void saveAndReturn() {
-        mainViewModel.savePayment(
-            memberId,
-            Conversions.stringToDate(binding.paymentEditorDate.getText().toString()),
-            Double.parseDouble(binding.paymentEditorAmount.getText().toString()),
-            Conversions.toOfferingType(binding.paymentEditorSpinner.getSelectedItemPosition()),
-            newPayment);
+        if (TextUtils.isEmpty(binding.paymentEditorDate.getText().toString().trim())) {
+            Toast.makeText(getApplication().getApplicationContext(), "Please enter value for date", Toast.LENGTH_LONG).show();
+        }
+        else if (TextUtils.isEmpty(binding.paymentEditorAmount.getText().toString().trim())) {
+            Toast.makeText(getApplication().getApplicationContext(), "Please enter value for payment amount", Toast.LENGTH_LONG).show();
+        }
+        else {
+            mainViewModel.savePayment(
+                    memberId,
+                    Conversions.stringToDate(binding.paymentEditorDate.getText().toString()),
+                    Double.parseDouble(binding.paymentEditorAmount.getText().toString()),
+                    Conversions.toOfferingType(binding.paymentEditorSpinner.getSelectedItemPosition()),
+                    newPayment);
 
-        finish();
-        Intent intent = new Intent(this, PaymentActivity.class);
-        startActivity(intent);
+            finish();
+            Intent intent = new Intent(this, PaymentActivity.class);
+            startActivity(intent);
+        }
     }
 
     //Display selected date in the TextView

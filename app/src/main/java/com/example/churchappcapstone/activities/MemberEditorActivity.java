@@ -2,9 +2,11 @@ package com.example.churchappcapstone.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.churchappcapstone.R;
 import com.example.churchappcapstone.database.MemberEntity;
 import com.example.churchappcapstone.databinding.ActivityMemberEditorBinding;
+import com.example.churchappcapstone.utilities.Constants;
 import com.example.churchappcapstone.utilities.Conversions;
 import com.example.churchappcapstone.viewmodel.MainViewModel;
 
@@ -123,19 +126,37 @@ public class MemberEditorActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void saveAndReturn() throws Exception {
-        mainViewModel.saveMember(
-            binding.memberEditorFname.getText().toString().trim(),
-            binding.memberEditorLname.getText().toString().trim(),
-            binding.memberEditorAddress.getText().toString().trim(),
-            binding.memberEditorEmail.getText().toString().trim(),
-            binding.memberEditorPhone.getText().toString().trim(),
-            Conversions.toStatus(binding.memberEditorStatusSpinner.getSelectedItemPosition()),
-            newMember);
-        finish();
+    private void saveAndReturn() {
+        String regexPhone = Constants.PHONE_REGEX;
+        String regexPhoneDash = Constants.PHONE_DASH_REGEX;
+        String regexEmail = Constants.EMAIL_REGEX;
 
-        Intent intent = new Intent(this, MemberListActivity.class);
-        intent.putExtra(IS_ADMIN, isAdmin);
-        startActivity(intent);
+        if(TextUtils.isEmpty(binding.memberEditorFname.getText().toString().trim()) || TextUtils.isEmpty(binding.memberEditorLname.getText().toString().trim()) ||
+                TextUtils.isEmpty(binding.memberEditorAddress.getText().toString().trim()) || TextUtils.isEmpty(binding.memberEditorEmail.getText().toString().trim()) ||
+                TextUtils.isEmpty(binding.memberEditorPhone.getText().toString().trim())) {
+            Toast.makeText(getApplication().getApplicationContext(), "Please enter all member information", Toast.LENGTH_LONG).show();
+        }
+        /// Validate phone number and email address format
+        else if(!binding.memberEditorEmail.getText().toString().trim().matches(regexEmail)) {
+            Toast.makeText(getApplication().getApplicationContext(), "Please use a valid email format (username@domain)", Toast.LENGTH_LONG).show();
+        }
+        else if(!binding.memberEditorPhone.getText().toString().trim().matches(regexPhone) && !binding.memberEditorPhone.getText().toString().trim().matches(regexPhoneDash)) {
+            Toast.makeText(getApplication().getApplicationContext(), "Please enter a valid phone number", Toast.LENGTH_LONG).show();
+        }
+        else {
+            mainViewModel.saveMember(
+                    binding.memberEditorFname.getText().toString().trim(),
+                    binding.memberEditorLname.getText().toString().trim(),
+                    binding.memberEditorAddress.getText().toString().trim(),
+                    binding.memberEditorEmail.getText().toString().trim(),
+                    binding.memberEditorPhone.getText().toString().trim(),
+                    Conversions.toStatus(binding.memberEditorStatusSpinner.getSelectedItemPosition()),
+                    newMember);
+            finish();
+
+            Intent intent = new Intent(this, MemberListActivity.class);
+            intent.putExtra(IS_ADMIN, isAdmin);
+            startActivity(intent);
+        }
     }
 }

@@ -1,9 +1,11 @@
 package com.example.churchappcapstone.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +24,7 @@ import com.example.churchappcapstone.database.MemberEntity;
 import com.example.churchappcapstone.databinding.ActivityLoginBinding;
 import com.example.churchappcapstone.viewmodel.MainViewModel;
 
+import java.io.File;
 import java.util.concurrent.ExecutionException;
 
 import static com.example.churchappcapstone.utilities.Constants.GUEST_ACCESS;
@@ -89,10 +92,6 @@ public class LoginActivity extends AppCompatActivity {
     private void initViewModel() {
         mainViewModel = new ViewModelProvider(this)
                 .get(MainViewModel.class);
-
-        // TODO: 6/3/2020 Remove login info
-       //loginEmail.setText("jdoe@gmail.com");
-        loginPass.setText("123456");
     }
 
     @Override
@@ -146,6 +145,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(checkedLogin != null && checkedLogin.getLoginPassword().equals(enteredPass)) {
                     MemberEntity memberEntity = mainViewModel.getMemberByEmail(enteredEmail);
                     Intent intent = new Intent(this, MemberHomeActivity.class);
+
                     intent.putExtra(USER_NAME, memberEntity.getFirstName());
                     intent.putExtra(LOGGED_IN_USER_ID, memberEntity.getMemberId());
                     intent.putExtra(IS_ADMIN, checkedLogin.isAdmin());
@@ -168,6 +168,5 @@ public class LoginActivity extends AppCompatActivity {
         checkedLogin = null;
         moveTaskToBack(true);
         finishAffinity();
-        return;
     }
 }

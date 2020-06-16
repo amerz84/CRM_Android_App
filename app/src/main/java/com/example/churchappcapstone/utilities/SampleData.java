@@ -23,10 +23,10 @@ public class SampleData {
 
     public static List<MemberEntity> getMembers() {
         List<MemberEntity> members = new ArrayList<>();
+        members.add(new MemberEntity("Admin", "User", "333 1st St", "test@wgu.edu", "2183456789", MemberEntity.MembershipStatus.CURRENT));
         members.add(new MemberEntity("John", "Doe", "123 Main St", "jdoe@gmail.com", "2183343456", MemberEntity.MembershipStatus.CURRENT));
         members.add(new MemberEntity("Sally", "Doe", "234 2nd St", "sallydoe@gmail.com", "2181112222", MemberEntity.MembershipStatus.UNPAID));
         members.add(new MemberEntity("Paul", "Nooman", "666 Spaghetti Circle", "newmansown@gmail.com", "2185555555", MemberEntity.MembershipStatus.EXPIRED));
-        members.add(new MemberEntity("Group1", "MemberWithEndDate", "333 1st St", "amerzw1@wgu.edu", "2183456789", MemberEntity.MembershipStatus.CURRENT));
 
         return members;
     }

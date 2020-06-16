@@ -42,8 +42,13 @@ public class MemberHomeActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            memberName = extras.getString(USER_NAME);
-            memberId = extras.getInt(LOGGED_IN_USER_ID);
+            if (extras.get(USER_NAME) == null || extras.get(LOGGED_IN_USER_ID) == null) {
+                memberName = ""; // Empty string if user exists in the login database but not the app database
+            }
+            else {
+                memberName = extras.getString(USER_NAME);
+                memberId = extras.getInt(LOGGED_IN_USER_ID);
+            }
             isAdmin = extras.getBoolean(IS_ADMIN);
         }
 

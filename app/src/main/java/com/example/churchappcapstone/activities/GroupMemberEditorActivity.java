@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -222,7 +223,7 @@ public class GroupMemberEditorActivity extends AppCompatActivity {
         String endDate = binding.groupMemberEditorEndPicker.getText().toString();
         String spinnerSelection = new String();
 
-        if (startDate.contains("Choose")) {
+        if (startDate.contains("Choose") || TextUtils.isEmpty(startDate)) {
             Toast.makeText(getApplicationContext(), "Please choose a start date", Toast.LENGTH_LONG).show();
         }
         else {
@@ -236,12 +237,12 @@ public class GroupMemberEditorActivity extends AppCompatActivity {
                     Conversions.stringToDate(startDate),
                     (endDate.isEmpty() || endDate.contains("Choose") ? null : Conversions.stringToDate(endDate)),
                     newMember);
-        }
 
-        finish();
-        Intent i = new Intent(this, GroupDetailActivity.class);
-        i.putExtra(IS_ADMIN, isAdmin);
-        i.putExtra(GROUP_ID_KEY, groupId);
-        startActivity(i);
+            finish();
+            Intent i = new Intent(this, GroupDetailActivity.class);
+            i.putExtra(IS_ADMIN, isAdmin);
+            i.putExtra(GROUP_ID_KEY, groupId);
+            startActivity(i);
+        }
     }
 }

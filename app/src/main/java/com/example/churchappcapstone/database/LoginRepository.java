@@ -34,15 +34,6 @@ public class LoginRepository {
         loginDatabase = LoginDatabase.getInstance(context);
     }
 
-    public void populateData() {
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                loginDatabase.loginDao().insertAll(SampleData.getLogins());
-            }
-        });
-    }
-
     public List<LoginEntity> getLogins() {
         return loginDatabase.loginDao().getAll();
     }
@@ -58,17 +49,5 @@ public class LoginRepository {
         Future<LoginEntity> future = exec.submit(callable);
         exec.shutdown();
         return future.get();
-    }
-
-    public void deleteAll() {
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-
-                loginDatabase.loginDao().deleteAll();
-
-            }
-        });
-
     }
 }

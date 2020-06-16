@@ -68,14 +68,11 @@ public class MainViewModel extends AndroidViewModel {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             repository.populateData(position, getApplication());
         }
-        if (position == 1) //Code passed by SampleData for login info insertion
-        loginRepository.populateData();
     }
 
     ////////////// DELETE all from DB ////////////////////////
     public void deleteAll() {
         repository.deleteAll();
-        loginRepository.deleteAll();
     }
 
     /////////////// Load LiveData entity for Detail Activity //////////////
@@ -212,11 +209,7 @@ public class MainViewModel extends AndroidViewModel {
         EventEntity event = liveEvent.getValue();
 
         if (event == null) {
-            if (TextUtils.isEmpty(title.trim()) ||
-                TextUtils.isEmpty(start.toString().trim()) || TextUtils.isEmpty(end.toString().trim())) {
-                Toast.makeText(getApplication().getApplicationContext(), "Please enter title, date, and start/end times", Toast.LENGTH_LONG).show();
-            }
-            else if (newEvent) {
+            if (newEvent) {
                 event = new EventEntity(title, note, start, end);
                 repository.insertEvent(event);
             }
@@ -234,10 +227,7 @@ public class MainViewModel extends AndroidViewModel {
         GroupEntity group = liveGroup.getValue();
 
         if(group == null) {
-            if(TextUtils.isEmpty(groupName.trim())) {
-                Toast.makeText(getApplication().getApplicationContext(), "Please enter group name", Toast.LENGTH_LONG).show();
-            }
-            else if (newGroup) {
+            if (newGroup) {
                 group = new GroupEntity(groupName, chairpersonId);
                 repository.insertGroup(group);
             }
@@ -254,10 +244,7 @@ public class MainViewModel extends AndroidViewModel {
         GroupMemberEntity groupMember = liveGroupMember.getValue();
 
         if(groupMember == null) {
-            if(TextUtils.isEmpty(start.toString().trim()) || start.toString().contains("Choose")) {
-                Toast.makeText(getApplication().getApplicationContext(), "Please select start date", Toast.LENGTH_LONG).show();
-            }
-            else if (newMember) {
+            if (newMember) {
                 groupMember = new GroupMemberEntity(repository.getGroupMemberMaxId() +1, groupId, memberId, start, end);
                 repository.insertGroupMember(groupMember);
             }
@@ -273,10 +260,7 @@ public class MainViewModel extends AndroidViewModel {
         PaymentEntity payment = livePayment.getValue();
 
         if(payment == null) {
-            if(TextUtils.isEmpty(paymentDate.toString().trim()) || (TextUtils.isEmpty(amount.toString().trim()))) {
-                Toast.makeText(getApplication().getApplicationContext(), "Please enter values for date and amount", Toast.LENGTH_LONG).show();
-            }
-            else if (newPayment) {
+            if (newPayment) {
                 payment = new PaymentEntity(memberId, paymentDate, amount, offeringType);
                 repository.insertPayment(payment);
             }
@@ -289,27 +273,11 @@ public class MainViewModel extends AndroidViewModel {
         }
     }
 
-    public void saveMember(String fName, String lName, String address, String email, String phone, MemberEntity.MembershipStatus membershipStatus, boolean newMember) throws Exception {
+    public void saveMember(String fName, String lName, String address, String email, String phone, MemberEntity.MembershipStatus membershipStatus, boolean newMember) {
         MemberEntity member = liveMember.getValue();
-        String regexPhone = Constants.PHONE_REGEX;
-        String regexPhoneDash = Constants.PHONE_DASH_REGEX;
-        String regexEmail = Constants.EMAIL_REGEX;
-
-        /// Validate phone number and email address format
-        if(!phone.matches(regexPhone) && !phone.matches(regexPhoneDash)) {
-            Toast.makeText(getApplication().getApplicationContext(), "Please enter a valid phone number", Toast.LENGTH_LONG).show();
-        }
-        else if(!email.matches(regexEmail)) {
-            Toast.makeText(getApplication().getApplicationContext(), "Please use a valid email format (username@domain)", Toast.LENGTH_LONG).show();
-            throw new Exception("saveMember(): Email Format Exception"); // For unit testing
-        }
 
         if(member == null) {
-            if(TextUtils.isEmpty(fName.trim()) || TextUtils.isEmpty(lName.trim()) || TextUtils.isEmpty(address.trim()) ||
-                TextUtils.isEmpty(email.trim()) || TextUtils.isEmpty(phone.trim())) {
-                Toast.makeText(getApplication().getApplicationContext(), "Please enter all member information", Toast.LENGTH_LONG).show();
-            }
-            else if(newMember) {
+            if(newMember) {
                 member = new MemberEntity(fName, lName, address, email, phone, membershipStatus);
                 repository.insertMember(member);
             }
