@@ -27,6 +27,7 @@ This is an Android mobile application developed for a fictional religious organi
 2. Run application
 3. On the login screen, click the hamburger menu and add sample data
 4. Enter login credentials:
-  - **Admin**: `test@wgu.edu/123456`
-  - **Authorized Member**: `sallydoe@gmail.com/123456`
-  - **Guest Access**: Click the "Not a Member?" link near the bottom of the screen
+    - **Admin**: `test@wgu.edu/123456`
+    - **Authorized Member**: `sallydoe@gmail.com/123456`
+    - **Guest Access**: Click the "Not a Member?" link near the bottom of the screen
+5. Navigate through and interact as desired
