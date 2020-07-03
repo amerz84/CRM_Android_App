@@ -21,10 +21,15 @@ This is an Android mobile application developed for a fictional religious organi
 - Data filtering for events (by week/month) and members (by membership status)
 
 ### Instructions For Use
+*Note: Application needs to be installed on either an Android emulator or a physical device (min SDK version 18)
 
-1. 
+1. Install the [.apk](app-release.apk) file on device
+2. Run 'application'
+3. On the login screen, click the hamburger menu and add sample data
+4. Enter login credentials:
+  - **Admin**: test@wgu.edu/123456
 #### Username:
 test@wgu.edu
 
 #### Password:
-123456
+'123456'
