@@ -23,12 +23,12 @@ This is an Android mobile application developed for a fictional religious organi
 ### Instructions For Use
 *Note: Application needs to be installed on either an Android emulator or a physical device (min SDK version 18). A full User Guide can be found on page 13 of the* [summary document](Written%20Documents/Task2_SectionC.docx).
 
-1. Install the [.apk](app-release.apk) file on device
-2. Run application
-3. On the login screen, click the hamburger menu and add sample data
+1. Install the [.apk](app-release.apk) file on device.
+2. Run application.
+3. On the login screen, click the hamburger menu and add sample data.
 4. Enter login credentials:
     - **Admin**: `test@wgu.edu/123456`
     - **Authorized Member**: `sallydoe@gmail.com/123456`
     - **Guest Access**: Click the "Not a Member?" link near the bottom of the screen
-5. Navigate through and interact as desired
-6. Logout by pressing the device back button twice on the member home screen
+5. Navigate through and interact as desired.
+6. Logout by pressing the device back button twice on the member home screen.
