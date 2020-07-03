@@ -31,3 +31,4 @@ This is an Android mobile application developed for a fictional religious organi
     - **Authorized Member**: `sallydoe@gmail.com/123456`
     - **Guest Access**: Click the "Not a Member?" link near the bottom of the screen
 5. Navigate through and interact as desired
+6. Logout by pressing the device back button twice on the member home screen
