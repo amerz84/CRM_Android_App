@@ -24,12 +24,9 @@ This is an Android mobile application developed for a fictional religious organi
 *Note: Application needs to be installed on either an Android emulator or a physical device (min SDK version 18)
 
 1. Install the [.apk](app-release.apk) file on device
-2. Run 'application'
+2. Run application
 3. On the login screen, click the hamburger menu and add sample data
 4. Enter login credentials:
-  - **Admin**: test@wgu.edu/123456
-#### Username:
-test@wgu.edu
-
-#### Password:
-'123456'
+  - **Admin**: `test@wgu.edu/123456`
+  - **Authorized Member**: `sallydoe@gmail.com/123456`
+  - **Guest Access**: Click the "Not a Member?" link near the bottom of the screen
