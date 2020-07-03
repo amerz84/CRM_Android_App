@@ -21,7 +21,7 @@ This is an Android mobile application developed for a fictional religious organi
 - Data filtering for events (by week/month) and members (by membership status)
 
 ### Instructions For Use
-*Note: Application needs to be installed on either an Android emulator or a physical device (min SDK version 18). A full User Guide can be found on page 13 of the [summary document](Written Documents/Task2_SectionC.docx)
+*Note: Application needs to be installed on either an Android emulator or a physical device (min SDK version 18). A full User Guide can be found on page 13 of the* [summary document](../Written Documents/Task2_SectionC.docx)
 
 1. Install the [.apk](app-release.apk) file on device
 2. Run application
