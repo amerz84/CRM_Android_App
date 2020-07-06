@@ -22,6 +22,7 @@ This is an Android mobile application that uses the [Room](https://developer.and
 - Error and exception handling
 - Keyword search functionality for events (by title or description) and member (by first or last name)
 - Data filtering for events (by week/month) and members (by membership status)
+- Small unit test suite
 
 ### Instructions For Use
 *Note: Application needs to be installed on either an Android emulator or a physical device (min SDK version 18). A full User Guide can be found on page 13 of the* [summary document](Extra_Documents/Task2_SectionC.docx).
@@ -53,3 +54,7 @@ This is an Android mobile application that uses the [Room](https://developer.and
 #### Send text to user via the app
 
 <img src="Extra_Documents/Screenshots/contact_member.gif" width="250" height="500" />
+
+#### Sample test method (testing for correct database inserts on the authentication database)
+
+<img src="Extra_Documents/Screenshots/test_example.png" width="666" height="222" />
