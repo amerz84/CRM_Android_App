@@ -19,6 +19,7 @@ This is an Android mobile application that uses the [Room](https://developer.and
 - Scrollable lists (using RecyclerView)
 - Screen orientation change handling (portrait <-> landscape)
 - Login authentication
+- Error and exception handling
 - Keyword search functionality for events (by title or description) and member (by first or last name)
 - Data filtering for events (by week/month) and members (by membership status)
 
