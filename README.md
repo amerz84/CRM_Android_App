@@ -40,4 +40,4 @@ This is an Android mobile application that uses the [Room](https://developer.and
 
 1. Searching for an event by keyword
 
-![Event keyword search](Extra_Documents/Screenshots/event_search.gif)
+![Event keyword search](Extra_Documents/Screenshots/event_search.gif =50x)
