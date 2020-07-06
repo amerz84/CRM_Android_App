@@ -24,7 +24,7 @@ This is an Android mobile application that uses the [Room](https://developer.and
 - Data filtering for events (by week/month) and members (by membership status)
 
 ### Instructions For Use
-*Note: Application needs to be installed on either an Android emulator or a physical device (min SDK version 18). A full User Guide can be found on page 13 of the* [summary document](Written%20Documents/Task2_SectionC.docx).
+*Note: Application needs to be installed on either an Android emulator or a physical device (min SDK version 18). A full User Guide can be found on page 13 of the* [summary document](Extra_Documents/Task2_SectionC.docx).
 
 1. Install the [.apk](app-release.apk) file on preferred device.
 2. Run application on device.
@@ -35,3 +35,21 @@ This is an Android mobile application that uses the [Room](https://developer.and
     - **Guest Access**: Click the "Not a Member?" link near the bottom of the screen
 5. Navigate through and interact as desired.
 6. Logout by pressing the device back button twice on the member home screen.
+
+### Examples
+
+#### Searching for an event by keyword
+
+<img src="Extra_Documents/Screenshots/event_search.gif" width="250" height="500" />
+
+#### Filtering members by membership status
+
+<img src="Extra_Documents/Screenshots/member_filter.gif" width="250" height="500" />
+
+#### Error message for invalid user
+
+<img src="Extra_Documents/Screenshots/login_exception.png" width="250" height="500" />
+
+#### Send text to user via the app
+
+<img src="Extra_Documents/Screenshots/contact_member.gif" width="250" height="500" />
