@@ -4,7 +4,7 @@
 
 ### About
 
-This is an Android mobile application developed for a fictional religious organization for the purposes of Customer Relationship Management(CRM) as well as an informational portal for users. Data is stored on local SQLite storage, but can be modified to be accessed from external server. The application allows for tracking of the following:
+This is an Android mobile application that uses the [Room](https://developer.android.com/topic/libraries/architecture/room) architecture and the ViewModel pattern. It is developed for a fictional, local religious organization for the purposes of Customer Relationship Management(CRM) for church staff as well as an informational portal for users. Data is stored on local SQLite storage, but can be modified to be accessed from external server. The application allows for tracking of the following:
 
 - Current and past members, prospective members/contacts
 - Intraorganizational groups
