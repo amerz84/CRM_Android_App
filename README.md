@@ -57,4 +57,4 @@ This is an Android mobile application that uses the [Room](https://developer.and
 
 #### Sample test method (testing for correct database inserts on the authentication database)
 
-<img src="Extra_Documents/Screenshots/test_example.png" width="666" height="222" />
+<img src="Extra_Documents/Screenshots/test_example.png" width="999" height="333" />
