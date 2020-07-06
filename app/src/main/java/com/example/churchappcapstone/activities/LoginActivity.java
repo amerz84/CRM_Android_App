@@ -22,6 +22,7 @@ import com.example.churchappcapstone.R;
 import com.example.churchappcapstone.database.LoginEntity;
 import com.example.churchappcapstone.database.MemberEntity;
 import com.example.churchappcapstone.databinding.ActivityLoginBinding;
+import com.example.churchappcapstone.utilities.Constants;
 import com.example.churchappcapstone.viewmodel.MainViewModel;
 
 import java.io.File;
@@ -151,12 +152,17 @@ public class LoginActivity extends AppCompatActivity {
                     intent.putExtra(IS_ADMIN, checkedLogin.isAdmin());
                     startActivity(intent);
                 }
-                else {
-                    if (!checkedLogin.getLoginPassword().equals(enteredPass)) {
+                //If email does not exist in DB, but sample data has been added, print "unknown user"
+                else if (checkedLogin == null && mainViewModel.getMemberList().size() > 0){
+                    Toast.makeText(this, "Unknown user", Toast.LENGTH_LONG).show();
+                }
+                //If email exists, but password doesn't match, print "password is invalid"
+                else if (!checkedLogin.getLoginPassword().equals(enteredPass) && checkedLogin != null) {
                         Toast.makeText(this, "Password is invalid", Toast.LENGTH_SHORT).show();
                     }
-                }
+            // If sample data has not been added, prompt user to add it
             } catch (Exception e) {
+                Log.i(Constants.TAG, e.getMessage());
                 Toast.makeText(this, "Please add sample data from menu bar", Toast.LENGTH_LONG).show();
             }
         }
