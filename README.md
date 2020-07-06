@@ -38,6 +38,18 @@ This is an Android mobile application that uses the [Room](https://developer.and
 
 ### Examples
 
-1. Searching for an event by keyword
+#### Searching for an event by keyword
 
 <img src="Extra_Documents/Screenshots/event_search.gif" width="250" height="500" />
+
+#### Filtering members by membership status
+
+<img src="Extra_Documents/Screenshots/member_filter.gif" width="250" height="500" />
+
+#### Error message for invalid user
+
+<img src="Extra_Documents/Screenshots/login_exception.png" width="250" height="500" />
+
+#### Send text to user via the app
+
+<img src="Extra_Documents/Screenshots/contact_member.gif" width="250" height="500" />
